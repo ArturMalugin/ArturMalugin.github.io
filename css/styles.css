@@ -417,19 +417,142 @@ section {
     }
 
     .nav-list {
+        display: none;
         flex-direction: column;
         text-align: center;
         gap: 1rem;
         margin-top: 1rem;
+        width: 100%;
+        background: var(--dark);
+        padding: 1rem 0;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--secondary);
+        cursor: pointer;
+    }
+
+    .hero {
+        padding: 60px 0;
+        margin-top: 60px;
     }
 
     .hero-content {
         text-align: center;
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+
+    .glitch {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+
+    .skill-card {
+        padding: 1.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        margin: 0;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0;
     }
 
     .footer-content {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .glitch {
+        font-size: 1.8rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .project-tech {
+        flex-wrap: wrap;
+    }
+
+    .project-tech span {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .contact-item {
+        padding: 1.5rem;
     }
 } 

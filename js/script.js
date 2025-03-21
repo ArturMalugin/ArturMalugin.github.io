@@ -32,26 +32,33 @@ document.querySelectorAll('.skill-card, .project-card, .contact-item').forEach(c
     observer.observe(card);
 });
 
-// Обработка отправки формы
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Мобильное меню
+const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('.nav-list');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+}
+
+// Анимации при скролле
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.skill-card, .project-card, .contact-item');
     
-    // Здесь можно добавить логику отправки формы
-    const formData = new FormData(this);
-    console.log('Form submitted:', Object.fromEntries(formData));
-    
-    // Анимация успешной отправки
-    const button = this.querySelector('button');
-    const originalText = button.textContent;
-    button.textContent = 'Отправлено!';
-    button.style.background = 'var(--secondary)';
-    
-    setTimeout(() => {
-        button.textContent = originalText;
-        button.style.background = '';
-        this.reset();
-    }, 2000);
-});
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        
+        if (elementTop < window.innerHeight && elementBottom > 0) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
 
 // Эффект неоновой подсветки при наведении
 document.querySelectorAll('.btn, .skill-card, .project-card, .contact-item').forEach(element => {
